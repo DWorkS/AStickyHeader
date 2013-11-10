@@ -1,0 +1,9 @@
+<dev.dworks.libs.astickyheader.ui.PinnedSectionListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerInParent="true"
+    android:choiceMode="singleChoice"
+    android:drawSelectorOnTop="true"
+    android:focusable="false"
+    android:gravity="center" />

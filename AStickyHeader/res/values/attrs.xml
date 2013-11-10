@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GridView">
+        <attr name="android:visible" />
+        <attr name="android:fromDegrees" />
+        <attr name="android:columnWidth" />
+        <attr name="android:stretchMode" />
+        <attr name="android:horizontalSpacing" />
+        <attr name="android:verticalSpacing" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AStickyHeader</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_grid">Sticky Grid Headers</string>
+    <string name="title_activity_list">Sticky List Headers</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
