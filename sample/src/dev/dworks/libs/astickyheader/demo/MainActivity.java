@@ -2,7 +2,6 @@ package dev.dworks.libs.astickyheader.demo;
 
 import java.util.ArrayList;
 
-import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +19,13 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends ListActivity {
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+import dev.dworks.libs.astickyheader.R;
+
+public class MainActivity extends SherlockListActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,23 @@ public class MainActivity extends ListActivity {
 		setListAdapter(getSampleAdapter());
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getSupportMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_about:
+			Intent aboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
+			startActivity(aboutIntent);
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		ActivityInfo info = (ActivityInfo) l.getItemAtPosition(position);
@@ -46,7 +68,7 @@ public class MainActivity extends ListActivity {
 			ActivityInfo[] aInfos = pInfo.activities;
 
 			for (ActivityInfo aInfo : aInfos) {
-				if (!thisClazzName.equals(aInfo.name)) {
+				if (!thisClazzName.equals(aInfo.name) && !aInfo.name.endsWith("AboutActivity")) {
 					items.add(aInfo);
 				}
 			}

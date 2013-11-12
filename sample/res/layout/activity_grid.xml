@@ -10,5 +10,8 @@
     android:gravity="center"
     android:horizontalSpacing="0dp"
     android:numColumns="3"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:scrollbarStyle="outsideOverlay"
     android:stretchMode="columnWidth"
     android:verticalSpacing="0dp" />

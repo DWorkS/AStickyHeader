@@ -6,4 +6,7 @@
     android:choiceMode="singleChoice"
     android:drawSelectorOnTop="true"
     android:focusable="false"
-    android:gravity="center" />
+    android:gravity="center"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:scrollbarStyle="outsideOverlay" />

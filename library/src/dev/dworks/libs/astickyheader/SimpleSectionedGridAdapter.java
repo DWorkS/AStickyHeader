@@ -98,7 +98,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
     	}
     	mGridView = gridView;
     	mStrechMode = gridView.getStretchMode();
-    	mWidth = gridView.getWidth();
+    	mWidth = gridView.getWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
         mNumColumns = ((PinnedSectionGridView)gridView).getNumColumns();
         requestedColumnWidth = ((PinnedSectionGridView)gridView).getColumnWidth();
     	requestedHorizontalSpacing = ((PinnedSectionGridView)gridView).getHorizontalSpacing();
@@ -107,7 +107,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
     private int getHeaderSize(){
     	if(mWidth != mGridView.getWidth()){
 	    	mStrechMode = mGridView.getStretchMode();
-	    	mWidth = mGridView.getWidth();
+	    	mWidth = mGridView.getWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
 	        mNumColumns = ((PinnedSectionGridView)mGridView).getNumColumns();
 	        requestedColumnWidth = ((PinnedSectionGridView)mGridView).getColumnWidth();
 	    	requestedHorizontalSpacing = ((PinnedSectionGridView)mGridView).getHorizontalSpacing();

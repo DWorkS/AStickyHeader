@@ -23,6 +23,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="dev.dworks.libs.astickyheader.demo.AboutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="About"
+            android:parentActivityName="dev.dworks.libs.astickyheader.demo.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dev.dworks.apps.asecure.MainActivity" />
+        </activity>
+        <activity
             android:name="dev.dworks.libs.astickyheader.demo.ListActivity"
             android:label="@string/title_activity_list" >
         </activity>
