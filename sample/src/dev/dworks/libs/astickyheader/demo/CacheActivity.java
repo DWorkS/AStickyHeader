@@ -3,7 +3,6 @@ package dev.dworks.libs.astickyheader.demo;
 import java.lang.ref.WeakReference;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,9 +15,13 @@ import android.support.v4.util.LruCache;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
+
 import dev.dworks.libs.astickyheader.R;
 
-public class CacheActivity extends Activity implements OnScrollListener {
+public class CacheActivity extends SherlockFragmentActivity implements OnScrollListener {
 
 	private Bitmap mPlaceHolderBitmap;
 	private LruCache<String, Bitmap> mMemoryCache;
@@ -28,6 +31,7 @@ public class CacheActivity extends Activity implements OnScrollListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		initCache();
 	}
 	
@@ -48,6 +52,16 @@ public class CacheActivity extends Activity implements OnScrollListener {
         super.onDestroy();
         mMemoryCache.evictAll();
     }
+    
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 	private void initCache() {
 		mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.empty_photo);

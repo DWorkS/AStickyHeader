@@ -41,7 +41,9 @@ public class HeaderLayout extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    	int widthMeasureSpecNew = MeasureSpec.makeMeasureSpec(mHeaderWidth, MeasureSpec.getMode(widthMeasureSpec));
+    	int widthMeasureSpecNew = mHeaderWidth == 1 
+    			? widthMeasureSpec 
+    			: MeasureSpec.makeMeasureSpec(mHeaderWidth, MeasureSpec.getMode(widthMeasureSpec));
 		super.onMeasure(widthMeasureSpecNew, heightMeasureSpec);
     }
 }

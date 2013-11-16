@@ -28,6 +28,7 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.SectionIndexer;
 import dev.dworks.libs.astickyheader.BuildConfig;
+import dev.dworks.libs.astickyheader.R;
 
 /**
  * ListView capable to pin views at its top while the rest is still scrolled.
@@ -221,6 +222,8 @@ public class PinnedSectionGridView extends GridView {
 		
 		// request new view
 		View pinnedView = getAdapter().getView(position, recycleView, PinnedSectionGridView.this);
+		HeaderLayout header = (HeaderLayout) pinnedView.findViewById(R.id.header_layout);
+		header.setHeaderWidth(1);
 		pinnedView.setBackgroundColor(Color.WHITE);
 		// read layout parameters
 		LayoutParams layoutParams = (LayoutParams) pinnedView.getLayoutParams();

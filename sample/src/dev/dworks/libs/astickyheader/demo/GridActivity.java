@@ -2,11 +2,12 @@ package dev.dworks.libs.astickyheader.demo;
 
 import java.util.ArrayList;
 
+import com.actionbarsherlock.view.Menu;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -43,7 +44,7 @@ public class GridActivity extends CacheActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.grid, menu);
+		getSupportMenuInflater().inflate(R.menu.grid, menu);
 		return true;
 	}
 	
