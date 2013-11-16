@@ -20,13 +20,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
-import dev.dworks.libs.actionbarplus.SherlockFragmentActivityPlus;
 import dev.dworks.libs.astickyheader.R;
 
-public class AboutActivity extends SherlockFragmentActivityPlus {
+public class AboutActivity extends SherlockFragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +63,8 @@ public class AboutActivity extends SherlockFragmentActivityPlus {
 			Intent intentFeedback = new Intent("android.intent.action.SEND");
 			intentFeedback.setType("text/email");
 			intentFeedback.putExtra("android.intent.extra.EMAIL", new String[]{"hakr@dworks.in"});
-			intentFeedback.putExtra("android.intent.extra.SUBJECT", "ASecure Feedback");
+			intentFeedback.putExtra("android.intent.extra.SUBJECT", "AStickyHeader Feedback");
 			startActivity(Intent.createChooser(intentFeedback, "Send Feedback"));
-			break;
-		case R.id.action_rate:
-			Intent intentMarket = new Intent("android.intent.action.VIEW");
-			intentMarket.setData(Uri.parse("market://details?id=dev.dworks.apps.asecure"));
-			startActivity(intentMarket);
 			break;
 		case R.id.action_support:
 			Intent intentMarketAll = new Intent("android.intent.action.VIEW");

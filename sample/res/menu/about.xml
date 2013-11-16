@@ -24,12 +24,6 @@
         android:showAsAction="always"
         android:title="Feedback"/>
     <item
-        android:id="@+id/action_rate"
-        android:icon="@drawable/ic_menu_rate"
-        android:orderInCategory="104"
-        android:showAsAction="always"
-        android:title="Rate"/>
-    <item
         android:id="@+id/action_support"
         android:icon="@drawable/ic_menu_support"
         android:orderInCategory="105"

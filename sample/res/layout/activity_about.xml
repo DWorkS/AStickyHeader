@@ -34,7 +34,9 @@
                     android:fontFamily="sans-serif-regular"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
-                    android:text="@string/app_ver" />
+                    android:text="@string/app_ver"
+                    android:textColor="#49C0EC"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
