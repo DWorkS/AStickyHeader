@@ -14,5 +14,5 @@
     android:paddingRight="10dp"
     android:scrollbarStyle="outsideOverlay"
     android:stretchMode="columnWidth"
-    android:background="@color/white"
+    android:background="@android:color/white"
     android:verticalSpacing="0dp" />

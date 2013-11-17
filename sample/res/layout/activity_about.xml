@@ -46,7 +46,7 @@
                     android:fontFamily="sans-serif-light"
                     android:text="@string/app_about"
                     android:textAppearance="?android:textAppearanceSmall"
-                    android:textColor="@color/white" />
+                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,12 +56,12 @@
                     android:gravity="center"
                     android:text="@string/app_contrib"
                     android:textAppearance="?android:textAppearanceSmall"
-                    android:textColor="@color/white" />
+                    android:textColor="@android:color/white" />
 
                 <View
                     android:layout_width="fill_parent"
                     android:layout_height="2.0dip"
-                    android:background="@color/white" />
+                    android:background="@android:color/white" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -79,7 +79,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/app_company"
                         android:textAppearance="?android:textAppearanceSmall"
-                        android:textColor="@color/white" />
+                        android:textColor="@android:color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                         android:gravity="center"
                         android:text="@string/app_about_info"
                         android:textAppearance="?android:textAppearanceSmall"
-                        android:textColor="@color/white" />
+                        android:textColor="@android:color/white" />
                 </LinearLayout>
 
                 <ImageView
