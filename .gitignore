@@ -29,6 +29,10 @@ local.properties
 proguard.cfg
 proguard-project.txt
 
+#Gradle
+.gradle
+build/
+
 #Other
 .DS_Store
 tmp
