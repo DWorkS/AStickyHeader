@@ -272,7 +272,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
 
     @Override
     public boolean areAllItemsEnabled() {
-        return false;
+    	return mBaseAdapter.areAllItemsEnabled();
     }
 
     @Override
