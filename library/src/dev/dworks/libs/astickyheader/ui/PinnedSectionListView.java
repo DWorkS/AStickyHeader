@@ -339,7 +339,6 @@ public class PinnedSectionListView extends ListView {
             canvas.restore();
         }
     }
-    
 
     private PinnedSectionListAdapter getPinnedAdapter() {
         PinnedSectionListAdapter adapter;

@@ -37,7 +37,8 @@ public class ListActivity extends CacheActivity {
 		for (int i = 0; i < mHeaderPositions.length; i++) {
 			sections.add(new Section(mHeaderPositions[i], mHeaderNames[i]));
 		}
-		SimpleSectionedListAdapter simpleSectionedGridAdapter = new SimpleSectionedListAdapter(this, R.layout.list_item_header, mAdapter);
+		SimpleSectionedListAdapter simpleSectionedGridAdapter = new SimpleSectionedListAdapter(this, mAdapter,
+				R.layout.list_item_header, R.id.header);
 		simpleSectionedGridAdapter.setSections(sections.toArray(new Section[0]));
 		list.setAdapter(simpleSectionedGridAdapter);
 	}

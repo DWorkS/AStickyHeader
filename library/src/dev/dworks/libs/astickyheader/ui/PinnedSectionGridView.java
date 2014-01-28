@@ -27,8 +27,8 @@ import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.SectionIndexer;
+import android.widget.WrapperListAdapter;
 import dev.dworks.libs.astickyheader.BuildConfig;
-import dev.dworks.libs.astickyheader.R;
 
 /**
  * ListView capable to pin views at its top while the rest is still scrolled.
@@ -39,6 +39,8 @@ public class PinnedSectionGridView extends GridView {
 	public static interface PinnedSectionGridAdapter extends ListAdapter {
 		/** This method shall return 'true' if views of given type has to be pinned. */
 		boolean isItemViewTypePinned(int position);
+		
+		int getHeaderLayoutResId();
 	} 
 	
 	/** Wrapper class for pinned section view and its position in the list */
@@ -222,7 +224,7 @@ public class PinnedSectionGridView extends GridView {
 		
 		// request new view
 		View pinnedView = getAdapter().getView(position, recycleView, PinnedSectionGridView.this);
-		HeaderLayout header = (HeaderLayout) pinnedView.findViewById(R.id.header_layout);
+		HeaderLayout header = (HeaderLayout) pinnedView.findViewById(getPinnedAdapter().getHeaderLayoutResId());
 		header.setHeaderWidth(1);
 		pinnedView.setBackgroundColor(Color.WHITE);
 		// read layout parameters
@@ -381,4 +383,12 @@ public class PinnedSectionGridView extends GridView {
 			canvas.restore();
 		}
 	}
+	
+    private PinnedSectionGridAdapter getPinnedAdapter() {
+        PinnedSectionGridAdapter adapter;
+        if (getAdapter() instanceof WrapperListAdapter)
+            adapter= (PinnedSectionGridAdapter) ((WrapperListAdapter)getAdapter()).getWrappedAdapter();
+        else adapter = (PinnedSectionGridAdapter) getAdapter();
+        return adapter;
+    }
 }

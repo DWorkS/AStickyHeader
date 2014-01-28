@@ -37,7 +37,8 @@ public class GridActivity extends CacheActivity {
 		for (int i = 0; i < mHeaderPositions.length; i++) {
 			sections.add(new Section(mHeaderPositions[i], mHeaderNames[i]));
 		}
-		SimpleSectionedGridAdapter simpleSectionedGridAdapter = new SimpleSectionedGridAdapter(this, R.layout.grid_item_header, mAdapter);
+		SimpleSectionedGridAdapter simpleSectionedGridAdapter = new SimpleSectionedGridAdapter(this, mAdapter,
+				R.layout.grid_item_header, R.id.header_layout, R.id.header);
 		simpleSectionedGridAdapter.setGridView(grid);
 		simpleSectionedGridAdapter.setSections(sections.toArray(new Section[0]));
 		grid.setAdapter(simpleSectionedGridAdapter);
