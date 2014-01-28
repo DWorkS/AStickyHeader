@@ -2,8 +2,6 @@ package dev.dworks.libs.astickyheader.demo;
 
 import java.util.ArrayList;
 
-import com.actionbarsherlock.view.Menu;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -13,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.actionbarsherlock.view.Menu;
+
 import dev.dworks.libs.astickyheader.R;
 import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter;
 import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter.Section;

@@ -172,14 +172,6 @@ public class PinnedSectionListView extends ListView {
         }
     };
 
-    private PinnedSectionListAdapter getPinnedAdapter() {
-        PinnedSectionListAdapter adapter;
-        if (getAdapter() instanceof WrapperListAdapter)
-            adapter= (PinnedSectionListAdapter) ((WrapperListAdapter)getAdapter()).getWrappedAdapter();
-        else adapter = (PinnedSectionListAdapter) getAdapter();
-        return adapter;
-    }
-
     /** Create shadow wrapper with a pinned view for a view at given position */
     private void createPinnedShadow(int position) {
 
@@ -346,5 +338,14 @@ public class PinnedSectionListView extends ListView {
             drawChild(canvas, mPinnedShadow.view, getDrawingTime());
             canvas.restore();
         }
+    }
+    
+
+    private PinnedSectionListAdapter getPinnedAdapter() {
+        PinnedSectionListAdapter adapter;
+        if (getAdapter() instanceof WrapperListAdapter)
+            adapter= (PinnedSectionListAdapter) ((WrapperListAdapter)getAdapter()).getWrappedAdapter();
+        else adapter = (PinnedSectionListAdapter) getAdapter();
+        return adapter;
     }
 }
