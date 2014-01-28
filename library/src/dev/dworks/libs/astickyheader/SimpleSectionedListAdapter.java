@@ -42,7 +42,6 @@ public class SimpleSectionedListAdapter extends BaseAdapter implements PinnedSec
         int firstPosition;
         int sectionedPosition;
         CharSequence title;
-
         public Section(int firstPosition, CharSequence title) {
             this.firstPosition = firstPosition;
             this.title = title;
