@@ -303,7 +303,6 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
 				view = (TextView) convertView.findViewById(mHeaderTextViewResId);
 				view.setText(mSections.get(position).title);
 				header.setHeaderWidth(getHeaderSize());
-				// view.setBackgroundColor(Color.BLUE);
 				break;
 			case TYPE_HEADER_FILLER:
 				header = (HeaderLayout) convertView.findViewById(mHeaderLayoutResId);
