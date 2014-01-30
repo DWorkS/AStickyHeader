@@ -38,3 +38,7 @@ License
 
 
 [1]: https://play.google.com/store/apps/details?id=dev.dworks.apps.anexplorer
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/DWorkS/astickyheader/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
