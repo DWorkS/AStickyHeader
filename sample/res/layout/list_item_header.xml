@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/header"
-        style="@style/Widget.Sherlock.TextView.Holo.ListSeparator.Light"
+        style="@style/Widget.Plus.TextView.Holo.ListSeparator.Light"
         android:layout_width="match_parent"
         android:layout_height="21dp"
         android:layout_margin="0dp"

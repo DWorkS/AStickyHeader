@@ -12,16 +12,14 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.util.LruCache;
+import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
-
+import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
 import dev.dworks.libs.astickyheader.R;
 
-public class CacheActivity extends SherlockFragmentActivity implements OnScrollListener {
+public class CacheActivity extends ActionBarActivityPlus implements OnScrollListener {
 
 	private Bitmap mPlaceHolderBitmap;
 	private LruCache<String, Bitmap> mMemoryCache;

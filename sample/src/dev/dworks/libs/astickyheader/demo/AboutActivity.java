@@ -19,14 +19,12 @@ package dev.dworks.libs.astickyheader.demo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
+import android.view.Menu;
+import android.view.MenuItem;
+import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
 import dev.dworks.libs.astickyheader.R;
 
-public class AboutActivity extends SherlockFragmentActivity {
+public class AboutActivity extends ActionBarActivityPlus {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,7 @@ public class AboutActivity extends SherlockFragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.about, menu);
+		getMenuInflater().inflate(R.menu.about, menu);
 		return true;
 	}
 
