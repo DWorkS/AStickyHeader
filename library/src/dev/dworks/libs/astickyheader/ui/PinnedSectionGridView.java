@@ -226,7 +226,6 @@ public class PinnedSectionGridView extends GridView {
 		View pinnedView = getAdapter().getView(position, recycleView, PinnedSectionGridView.this);
 		HeaderLayout header = (HeaderLayout) pinnedView.findViewById(getPinnedAdapter().getHeaderLayoutResId());
 		header.setHeaderWidth(1);
-		pinnedView.setBackgroundColor(Color.WHITE);
 		// read layout parameters
 		LayoutParams layoutParams = (LayoutParams) pinnedView.getLayoutParams();
 		
