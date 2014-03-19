@@ -10,25 +10,39 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import dev.dworks.libs.actionbarplus.app.ActionBarListActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import dev.dworks.libs.astickyheader.R;
 
-public class MainActivity extends ActionBarListActivity{
+public class MainActivity extends ActionBarActivity implements OnItemClickListener {
+
+	private ListView mList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setListAdapter(getSampleAdapter());
+		setContentView(R.layout.activity_main);
+		mList = (ListView)findViewById(android.R.id.list);
+		mList.setOnItemClickListener(this);
+		mList.setAdapter(getSampleAdapter());
+		
+	    AdView adView = (AdView) this.findViewById(R.id.adView);
+	    adView.loadAd(new AdRequest.Builder().build());
 	}
 
 	@Override
@@ -48,14 +62,6 @@ public class MainActivity extends ActionBarListActivity{
 		return super.onOptionsItemSelected(item);
 	}
 	
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		ActivityInfo info = (ActivityInfo) l.getItemAtPosition(position);
-		Intent intent = new Intent();
-		intent.setComponent(new ComponentName(this, info.name));
-		startActivity(intent);
-	}
-
 	private ListAdapter getSampleAdapter() {
 		ArrayList<ActivityInfo> items = new ArrayList<ActivityInfo>();
 		final String thisClazzName = getClass().getName();
@@ -66,7 +72,8 @@ public class MainActivity extends ActionBarListActivity{
 			ActivityInfo[] aInfos = pInfo.activities;
 
 			for (ActivityInfo aInfo : aInfos) {
-				if (!thisClazzName.equals(aInfo.name) && !aInfo.name.endsWith("AboutActivity")) {
+				if (!thisClazzName.equals(aInfo.name) && !aInfo.name.endsWith("AboutActivity")
+						&& !aInfo.name.endsWith("AdActivity")) {
 					items.add(aInfo);
 				}
 			}
@@ -118,5 +125,13 @@ public class MainActivity extends ActionBarListActivity{
 			}
 			return tv;
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		ActivityInfo info = (ActivityInfo) parent.getItemAtPosition(position);
+		Intent intent = new Intent();
+		intent.setComponent(new ComponentName(this, info.name));
+		startActivity(intent);		
 	}
 }

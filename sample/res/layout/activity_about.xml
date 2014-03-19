@@ -2,17 +2,16 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+    android:paddingBottom="10dp"
+    android:clipToPadding="false"
+    android:paddingTop="10dp" >
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="400.0dip"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"
@@ -22,46 +21,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/card_black"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/logo"
+                    style="@style/MyTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10.0dip"
-                    android:fontFamily="sans-serif-regular"
+                    android:layout_marginTop="10dp"
+                    android:drawableTop="@drawable/logo_big"
                     android:gravity="center_horizontal"
                     android:singleLine="true"
-                    android:text="@string/app_ver"
-                    android:textColor="#49C0EC"
-                    android:textSize="20sp" />
+                    android:text="@string/app_ver" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_margin="10.0dip"
-                    android:fontFamily="sans-serif-light"
+                    android:layout_margin="10dp"
                     android:text="@string/app_about"
-                    android:textAppearance="?android:textAppearanceSmall"
-                    android:textColor="@android:color/white" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="@string/app_contrib"
-                    android:textAppearance="?android:textAppearanceSmall"
-                    android:textColor="@android:color/white" />
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@android:color/black" />
 
                 <View
                     android:layout_width="fill_parent"
-                    android:layout_height="2.0dip"
-                    android:background="@android:color/white" />
+                    android:layout_height="1dp"
+                    android:background="@android:color/black" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -73,30 +73,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:layout_marginLeft="10.0dip"
-                        android:layout_marginTop="10.0dip"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:drawableRight="@drawable/dworks"
                         android:gravity="center_vertical"
                         android:text="@string/app_company"
-                        android:textAppearance="?android:textAppearanceSmall"
-                        android:textColor="@android:color/white" />
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_margin="10.0dip"
+                        android:layout_margin="10dp"
                         android:gravity="center"
                         android:text="@string/app_about_info"
-                        android:textAppearance="?android:textAppearanceSmall"
-                        android:textColor="@android:color/white" />
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@android:color/black" />
                 </LinearLayout>
 
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/black" />
+
                 <ImageView
-                    android:layout_width="200.0dip"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10.0dip"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/made_with_love" />
             </LinearLayout>
 
@@ -105,7 +110,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical" />
+                android:orientation="vertical" >
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

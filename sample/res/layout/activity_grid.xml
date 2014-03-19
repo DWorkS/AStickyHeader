@@ -1,18 +1,33 @@
-<dev.dworks.libs.astickyheader.ui.PinnedSectionGridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/grid"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_centerInParent="true"
-    android:choiceMode="singleChoice"
-    android:columnWidth="100dp"
-    android:drawSelectorOnTop="true"
-    android:focusable="false"
-    android:gravity="center"
-    android:horizontalSpacing="0dp"
-    android:numColumns="3"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:scrollbarStyle="outsideOverlay"
-    android:stretchMode="columnWidth"
-    android:background="@android:color/white"
-    android:verticalSpacing="0dp" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <dev.dworks.libs.astickyheader.ui.PinnedSectionGridView
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:choiceMode="singleChoice"
+        android:columnWidth="100dp"
+        android:drawSelectorOnTop="true"
+        android:focusable="false"
+        android:gravity="center"
+        android:horizontalSpacing="0dp"
+        android:numColumns="3"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="0dp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="a153286e3370ace"  />
+
+</LinearLayout>

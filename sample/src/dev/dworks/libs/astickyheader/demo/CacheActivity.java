@@ -12,14 +12,18 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.util.LruCache;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
-import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import dev.dworks.libs.astickyheader.R;
 
-public class CacheActivity extends ActionBarActivityPlus implements OnScrollListener {
+public class CacheActivity extends ActionBarActivity implements OnScrollListener {
 
 	private Bitmap mPlaceHolderBitmap;
 	private LruCache<String, Bitmap> mMemoryCache;
@@ -31,6 +35,13 @@ public class CacheActivity extends ActionBarActivityPlus implements OnScrollList
 		super.onCreate(savedInstanceState);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		initCache();
+	}
+	
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+	    AdView adView = (AdView) this.findViewById(R.id.adView);
+	    adView.loadAd(new AdRequest.Builder().build());
 	}
 	
 	@Override

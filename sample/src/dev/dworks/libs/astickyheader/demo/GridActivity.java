@@ -15,8 +15,8 @@ import android.widget.ImageView;
 import dev.dworks.libs.astickyheader.R;
 import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter;
 import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter.Section;
-
 public class GridActivity extends CacheActivity {
+
 
 	private GridView grid;
 	private ImageAdapter mAdapter;

@@ -19,12 +19,12 @@ package dev.dworks.libs.astickyheader.demo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import dev.dworks.libs.actionbarplus.app.ActionBarActivityPlus;
 import dev.dworks.libs.astickyheader.R;
 
-public class AboutActivity extends ActionBarActivityPlus {
+public class AboutActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
