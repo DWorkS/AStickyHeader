@@ -307,7 +307,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
 			case TYPE_HEADER_FILLER:
 				header = (HeaderLayout) convertView.findViewById(mHeaderLayoutResId);
 				view = (TextView) convertView.findViewById(mHeaderTextViewResId);
-				view.setText("");
+				view.setText(mSections.get(position).title);
 				header.setHeaderWidth(0);
 				break;
 			default:
@@ -329,7 +329,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
 	@Override
 	public boolean isItemViewTypePinned(int position) {
 		Section section = mSections.get(position); 
-		return isSectionHeaderPosition(position) && section.type == TYPE_HEADER;
+		return isSectionHeaderPosition(position) && section.type != TYPE_FILLER;
 	}
 
 	@Override

@@ -103,7 +103,6 @@ public class PinnedSectionGridView extends AutoScrollGridView {
 
 		@Override
 		public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
 			if (mDelegateOnScrollListener != null) { // delegate
 				mDelegateOnScrollListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
 			}
@@ -114,7 +113,6 @@ public class PinnedSectionGridView extends AutoScrollGridView {
 				return; // nothing to do
 
 			final boolean isFirstVisibleItemSection = isItemViewTypePinned(adapter, firstVisibleItem);
-
 			if (isFirstVisibleItemSection) {
 				View sectionView = getChildAt(0);
 				if (sectionView.getTop() == getPaddingTop()) { // view sticks to
@@ -272,7 +270,7 @@ public class PinnedSectionGridView extends AutoScrollGridView {
 		}
 
 		// align shadow according to next section position, if needed
-		int nextPosition = sectionPosition + 1;
+		int nextPosition = sectionPosition + getNumColumns();
 		if (nextPosition < getCount()) {
 			int nextSectionPosition = findFirstVisibleSectionPosition(nextPosition, visibleItemCount - (nextPosition - firstVisibleItem));
 			if (nextSectionPosition > -1) {
@@ -292,7 +290,6 @@ public class PinnedSectionGridView extends AutoScrollGridView {
 				mSectionsDistanceY = Integer.MAX_VALUE;
 			}
 		}
-
 	}	
 
 	int findFirstVisibleSectionPosition(int firstVisibleItem, int visibleItemCount) {
