@@ -21,7 +21,6 @@ import java.util.Comparator;
 
 import android.content.Context;
 import android.database.DataSetObserver;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -154,12 +153,6 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
             break;
         }
         mHeaderWidth = mWidth + ((mNumColumns - 1) * (mColumnWidth + mHorizontalSpacing)) ;
-        Log.i("ASH", "\n"+"mWidth:"+mWidth
-        			+"\n"+"mNumColumns:"+mNumColumns
-        			+"\n"+"mColumnWidth:"+mColumnWidth
-        			+"\n"+"mHorizontalSpacing:"+mHorizontalSpacing
-        			+"\n"+"mStrechMode:"+mStrechMode
-        			+"\n"+"mHeaderWidth:"+mHeaderWidth);
         return mHeaderWidth;
     }
     
