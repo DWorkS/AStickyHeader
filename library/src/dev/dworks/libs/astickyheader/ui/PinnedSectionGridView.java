@@ -32,11 +32,13 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.AbsListView;
+import android.widget.GridView;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.SectionIndexer;
 import android.widget.WrapperListAdapter;
 import dev.dworks.libs.astickyheader.BuildConfig;
+import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter;
 
 /**
  * ListView capable to pin views at its top while the rest is still scrolled.
@@ -150,6 +152,7 @@ public class PinnedSectionGridView extends AutoScrollGridView {
 			recreatePinnedShadow();
 		}
 	};
+	private int mAvailableWidth;
     
 	public PinnedSectionGridView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -567,5 +570,30 @@ public class PinnedSectionGridView extends AutoScrollGridView {
 	public int getColumnWidth(){
 		return mColumnWidth;
 	}
+	
+	public int getAvailableWidth(){
+		return mAvailableWidth != 0 ? mAvailableWidth : getWidth();
+	}
 
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (mNumColumns == GridView.AUTO_FIT) {
+        	mAvailableWidth = MeasureSpec.getSize(widthMeasureSpec);
+            if (mColumnWidth > 0) {
+            	int availableSpace = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
+                // Client told us to pick the number of columns
+                mNumColumns = (availableSpace + mHorizontalSpacing) /
+                        (mColumnWidth + mHorizontalSpacing);
+            } else {
+                // Just make up a number if we don't have enough info
+                mNumColumns = 2;
+            }
+            if(null != getAdapter()){
+            	if(getAdapter() instanceof SimpleSectionedGridAdapter){
+            		((SimpleSectionedGridAdapter)getAdapter()).setSections();
+            	}
+            }
+        }
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+	}
 }

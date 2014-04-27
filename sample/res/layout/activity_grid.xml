@@ -16,7 +16,7 @@
         android:focusable="false"
         android:gravity="center"
         android:horizontalSpacing="0dp"
-        android:numColumns="3"
+        android:numColumns="auto_fit"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:scrollbarStyle="outsideOverlay"

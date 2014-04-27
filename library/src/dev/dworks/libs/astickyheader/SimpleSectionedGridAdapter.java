@@ -21,6 +21,7 @@ import java.util.Comparator;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,9 +45,10 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
     private LayoutInflater mLayoutInflater;
     private ListAdapter mBaseAdapter;
     private SparseArray<Section> mSections = new SparseArray<Section>();
+    private Section[] mInitialSections = new Section[0];
 	private Context mContext;
-//	private View mLastHeaderViewSeen;
 	private View mLastViewSeen;
+	private int mHeaderWidth;
 	private int mNumColumns;
 	private int mWidth;
 	private int mColumnWidth;
@@ -110,9 +112,12 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
     }
     
     private int getHeaderSize(){
+    	if(mHeaderWidth > 0){
+    		return mHeaderWidth;
+    	}
     	if(mWidth != mGridView.getWidth()){
 	    	mStrechMode = mGridView.getStretchMode();
-	    	mWidth = mGridView.getWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
+	    	mWidth = ((PinnedSectionGridView)mGridView).getAvailableWidth() - (mGridView.getPaddingLeft() + mGridView.getPaddingRight());
 	        mNumColumns = ((PinnedSectionGridView)mGridView).getNumColumns();
 	        requestedColumnWidth = ((PinnedSectionGridView)mGridView).getColumnWidth();
 	    	requestedHorizontalSpacing = ((PinnedSectionGridView)mGridView).getHorizontalSpacing();
@@ -148,13 +153,27 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
         	mWidth = mWidth - spaceLeftOver + (2 * mHorizontalSpacing);
             break;
         }
-		return mWidth + ((mNumColumns - 1) * (mColumnWidth + mHorizontalSpacing)) ;
+        mHeaderWidth = mWidth + ((mNumColumns - 1) * (mColumnWidth + mHorizontalSpacing)) ;
+        Log.i("ASH", "\n"+"mWidth:"+mWidth
+        			+"\n"+"mNumColumns:"+mNumColumns
+        			+"\n"+"mColumnWidth:"+mColumnWidth
+        			+"\n"+"mHorizontalSpacing:"+mHorizontalSpacing
+        			+"\n"+"mStrechMode:"+mStrechMode
+        			+"\n"+"mHeaderWidth:"+mHeaderWidth);
+        return mHeaderWidth;
     }
+    
 
     public void setSections(Section[] sections) {
+    	mInitialSections = sections;
+    	setSections();
+    }
+
+    public void setSections() {
         mSections.clear();
 
-        Arrays.sort(sections, new Comparator<Section>() {
+        getHeaderSize();
+        Arrays.sort(mInitialSections, new Comparator<Section>() {
             @Override
             public int compare(Section o, Section o1) {
                 return (o.firstPosition == o1.firstPosition)
@@ -164,8 +183,8 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
         });
 
         int offset = 0; // offset positions for the headers we're adding
-        for (int i = 0; i < sections.length; i++) {
-			Section section = sections[i];
+        for (int i = 0; i < mInitialSections.length; i++) {
+			Section section = mInitialSections[i];
     		Section sectionAdd;
  
         	for (int j = 0; j < mNumColumns - 1; j++) {
@@ -182,12 +201,12 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
             mSections.append(sectionAdd.sectionedPosition, sectionAdd);
             ++offset;
         	
-            if(i+1 < sections.length){
-            	int nextPos = sections[i+1].firstPosition;
+            if(i < mInitialSections.length - 1){
+            	int nextPos = mInitialSections[i+1].firstPosition;
             	int itemsCount = nextPos - section.firstPosition;
             	int dummyCount = mNumColumns - (itemsCount % mNumColumns);
             	if(mNumColumns != dummyCount){
-	            	for (int j = 0 ;j < dummyCount; j++) {
+	            	for (int k = 0 ;k < dummyCount; k++) {
 	                	sectionAdd = new Section(section.firstPosition, section.title);
 	            		sectionAdd.type = TYPE_FILLER;
 	            		sectionAdd.sectionedPosition = nextPos + offset;
