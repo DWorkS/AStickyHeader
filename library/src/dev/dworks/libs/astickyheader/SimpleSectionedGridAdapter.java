@@ -266,7 +266,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
     public int getItemViewType(int position) {
         return isSectionHeaderPosition(position)
                 ? getViewTypeCount() - 1
-                : mBaseAdapter.getItemViewType(position);
+                : mBaseAdapter.getItemViewType(sectionedPositionToPosition(position));
     }
 
     @Override

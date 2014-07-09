@@ -145,7 +145,7 @@ public class SectionedListAdapter extends BaseAdapter implements PinnedSectionLi
 
 	@Override
 	public int getItemViewType(final int position) {
-		return isSectionHeaderPosition(position) ? getViewTypeCount() - 1 : mBaseAdapter.getItemViewType(position);
+		return isSectionHeaderPosition(position) ? getViewTypeCount() - 1 : mBaseAdapter.getItemViewType(sectionedPositionToPosition(position));
 	}
 
 	@Override

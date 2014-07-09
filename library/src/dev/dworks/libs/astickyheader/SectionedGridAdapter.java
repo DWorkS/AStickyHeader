@@ -225,7 +225,7 @@ public abstract class SectionedGridAdapter extends BaseAdapter implements Pinned
 	@Override
 	public final int getItemViewType(final int position) {
 		if (!isSectionHeaderPosition(position))
-			return getItemViewTypeExtra(position);
+			return getItemViewTypeExtra(sectionedPositionToPosition(position));
 		final int type = mSections.get(position).type;
 		return type;
 	}
