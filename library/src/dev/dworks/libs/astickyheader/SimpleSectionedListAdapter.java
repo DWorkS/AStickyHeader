@@ -73,7 +73,7 @@ public class SimpleSectionedListAdapter extends BaseAdapter implements PinnedSec
         });
     }
 
-    public void setSections(Section[] sections) {
+    public void setSections(Section... sections) {
         mSections.clear();
 
         notifyDataSetChanged();

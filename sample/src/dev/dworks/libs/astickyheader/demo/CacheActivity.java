@@ -17,10 +17,6 @@ import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import dev.dworks.libs.astickyheader.R;
 
 public class CacheActivity extends ActionBarActivity implements OnScrollListener {
@@ -40,8 +36,6 @@ public class CacheActivity extends ActionBarActivity implements OnScrollListener
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-	    AdView adView = (AdView) this.findViewById(R.id.adView);
-	    adView.loadAd(new AdRequest.Builder().build());
 	}
 	
 	@Override

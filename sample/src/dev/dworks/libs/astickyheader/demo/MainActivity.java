@@ -23,10 +23,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import dev.dworks.libs.astickyheader.R;
 
 public class MainActivity extends ActionBarActivity implements OnItemClickListener {
@@ -40,9 +36,6 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 		mList = (ListView)findViewById(android.R.id.list);
 		mList.setOnItemClickListener(this);
 		mList.setAdapter(getSampleAdapter());
-		
-	    AdView adView = (AdView) this.findViewById(R.id.adView);
-	    adView.loadAd(new AdRequest.Builder().build());
 	}
 
 	@Override

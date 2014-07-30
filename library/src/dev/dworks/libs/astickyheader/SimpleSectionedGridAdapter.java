@@ -157,7 +157,7 @@ public class SimpleSectionedGridAdapter extends BaseAdapter implements PinnedSec
     }
     
 
-    public void setSections(Section[] sections) {
+    public void setSections(Section... sections) {
     	mInitialSections = sections;
     	setSections();
     }
