@@ -5,6 +5,23 @@ AStickyHeader
 `AStickyHeader` is a simple library for adding Sticky Headers to `ListView` or `GridView`.
 Usage is very simple, it supports all kinds of Adapters. 
 
+## Quick Start
+
+AStickyHeader is available as an AAR, so you can use it by just adding the following dependency to your `build.gradle`.
+```
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+...
+
+dependencies {
+     compile 'dev.dworks.libs:astickyheader:0.1.0'
+}
+...
+```
+
 ## Sample App
 
 [![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](http://play.google.com/store/apps/details?id=dev.dworks.libs.astickyheader)
