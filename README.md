@@ -1,5 +1,8 @@
 AStickyHeader
 ==========
+
+<a href="https://app.codesponsor.io/link/DDouVAHvg5bDgXhVeHCW8XH1/DWorkS/AStickyHeader" rel="nofollow"><img src="https://app.codesponsor.io/embed/DDouVAHvg5bDgXhVeHCW8XH1/DWorkS/AStickyHeader.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+
 ![AStickyHeader](https://github.com/DWorkS/AStickyHeader/raw/master/header.png)
 
 `AStickyHeader` is a simple library for adding Sticky Headers to `ListView` or `GridView`.
